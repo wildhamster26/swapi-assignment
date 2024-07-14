@@ -1,0 +1,25 @@
+.figure-card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 8px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+  height: 75%;
+}
+
+.figure-card:hover {
+  transform: translateY(-5px);
+}
+
+.figure-card__name {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+}
+
+.figure-card__birth-year,
+.figure-card__gender {
+  font-size: 1rem;
+  margin: 4px 0;
+}
