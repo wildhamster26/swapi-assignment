@@ -1,46 +1,23 @@
-# Getting Started with Create React App
+# Decisions
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## folder structure
+I decided to go with the basic components/pages division, along with a specific folder for the context and the data fetching hook.
+If the component files were longer or had some complicated logic, I would have created a custom hook for them as well, but felt it was unnecessary in this case.
+Each component/page has a tsx file and a css file in a folder of their own. The folder could also include a spec file and a custom hook file to keep all relevant files in the same place.
 
-## Available Scripts
+## Pulling all people data from swapi
+As the instructions said I should consider the list to be short and I could pull all data in one shot, I did.
+I prefer to have everything ready in a context that can be shared across the app than go with pagination.
+For the user I think it's better to have a single download at the beginning, than an ongoing download that could be frustrating.
+I can then display and filter the relatively short list very quickly. As it does not use much memory it was a simple decision.
 
-In the project directory, you can run:
+## third party libs for virtualization and responsiveness
+Virtualization was chosen to be efficient on the DOM. I don't want to display the entire list when I can only render the relevant data.
+`react-window` was chosen because of it's amount of downloads, last update and simplicity compared to other 4 libs. `react-virtualized-auto-sizer` was recommended by `react-window`'s author as the go to choice for it.
 
-### `npm start`
+## Grid and a list for the catalogue
+It was written in the instructions as an option and I think it's a good idea. Users should be able to decide for themselves what's more comfortable for them.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Breaking down the components according to SRP
+I wanted each component to do one thing and do it well. That's why we have the loader, the switch, the form, the list, etc. each in a standalone component.
+I ran out of time, but discovered a serious mistake at the last minute, so I'll at least acknowledge it - the grid and list components should have taken children with the relevant data passed as props (`data` instead of `people` in the code, to make it generic) instead of rendering the hard coded FigureCard. It shouldn't be a complicated fix, but I'm already late...
