@@ -7,12 +7,12 @@ import './VirtualizedList.css';
 interface VirtualizedListProps {
     people: Person[];
     height: number;
-    itemSize: number;
     width: string | number;
-    columnCount: number;
+    itemSize?: number;
+    columnCount?: number;
 }
 
-const VirtualizedList: React.FC<VirtualizedListProps> = ({ people, height, itemSize, width, columnCount }) => {
+const VirtualizedList: React.FC<VirtualizedListProps> = ({ people, height, width, itemSize = 150, columnCount = 1 }) => {
     const rowCount = Math.ceil(people.length / columnCount);
     
     return (
@@ -21,9 +21,7 @@ const VirtualizedList: React.FC<VirtualizedListProps> = ({ people, height, itemS
             itemCount={people.length}
             itemSize={itemSize}
             width={width}
-            // layout="horizontal"
             itemData={people}
-            // direction="ltr"
         >
             {({ index, style }) => {
                 const person = people[index];
