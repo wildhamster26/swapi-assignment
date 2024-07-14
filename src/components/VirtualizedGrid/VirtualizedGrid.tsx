@@ -9,9 +9,10 @@ interface VirtualizedGridProps {
     height: number;
     width: number;
     minColumnWidth?: number;
+    minRowHeight?: number;
 }
 
-const VirtualizedGrid: React.FC<VirtualizedGridProps> = ({ people, height, width, minColumnWidth = 200 }) => {
+const VirtualizedGrid: React.FC<VirtualizedGridProps> = ({ people, height, width, minColumnWidth = 200, minRowHeight = 200 }) => {
     const columnCount = Math.max(1, Math.floor(width / minColumnWidth));
     const rowCount = Math.ceil(people.length / columnCount);
     const columnWidth = Math.floor(width / columnCount);
@@ -19,10 +20,10 @@ const VirtualizedGrid: React.FC<VirtualizedGridProps> = ({ people, height, width
     return (
         <Grid
             columnCount={columnCount}
-            columnWidth={() => 250}
+            columnWidth={() => minColumnWidth}
             height={height}
             rowCount={rowCount}
-            rowHeight={() => 200}
+            rowHeight={() => minRowHeight}
             width={width}
         >
             {({ columnIndex, rowIndex, style }) => {
