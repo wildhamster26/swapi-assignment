@@ -1,10 +1,5 @@
 import { useState, useEffect } from 'react';
-
-interface Person {
-    name: string;
-    birth_year: string;
-    gender: string;
-}
+import { Person } from '../types';
 
 const useFetchPeople = () => {
     const [people, setPeople] = useState<Person[]>([]);

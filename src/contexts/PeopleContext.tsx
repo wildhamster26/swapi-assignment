@@ -1,11 +1,6 @@
 import React, { createContext, ReactNode } from 'react';
 import useFetchPeople from '../hooks/useFetchPeople';
-
-export interface Person {
-    name: string;
-    birth_year: string;
-    gender: string;
-}
+import { Person } from '../types';
 
 export interface PeopleContextProps {
     people: Person[];
