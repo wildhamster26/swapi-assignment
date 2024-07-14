@@ -8,10 +8,10 @@ interface VirtualizedGridProps {
     people: Person[];
     height: number;
     width: number;
-    minColumnWidth: number;
+    minColumnWidth?: number;
 }
 
-const VirtualizedGrid: React.FC<VirtualizedGridProps> = ({ people, height, width, minColumnWidth }) => {
+const VirtualizedGrid: React.FC<VirtualizedGridProps> = ({ people, height, width, minColumnWidth = 200 }) => {
     const columnCount = Math.max(1, Math.floor(width / minColumnWidth));
     const rowCount = Math.ceil(people.length / columnCount);
     const columnWidth = Math.floor(width / columnCount);
