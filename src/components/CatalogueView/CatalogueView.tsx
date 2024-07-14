@@ -4,6 +4,7 @@ import { PeopleContext } from '../../contexts/PeopleContext';
 import Loader from '../Loader/Loader';
 import VirtualizedList from '../VirtualizedList/VirtualizedList';
 import VirtualizedGrid from '../VirtualizedGrid/VirtualizedGrid';
+import Switch from '../Switch/Switch';
 import './CatalogueView.css';
 
 const CatalogueView: React.FC = () => {
@@ -21,17 +22,7 @@ const CatalogueView: React.FC = () => {
 
     return (
         <section className="catalogue-view">
-            <div className="toggle-container">
-                <p>Grid / List</p>
-                <label className="switch">
-                    <input
-                        type="checkbox"
-                        checked={isGridView}
-                        onChange={() => setIsGridView(!isGridView)}
-                        />
-                    <span className="slider round"></span>
-                </label>
-            </div>
+            <Switch label="Grid / List" isChecked={isGridView} toggleView={() => setIsGridView(!isGridView)} />
             <div className="grid-container">
                 <AutoSizer>
                     {({ height, width }: {height: number, width: number}) => (
