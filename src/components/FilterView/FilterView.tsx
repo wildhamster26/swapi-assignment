@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { PeopleContext } from '../../contexts/PeopleContext';
-import FigureCard from '../FigureCard/FigureCard';
+import FigureCard, { FigureCardProps } from '../FigureCard/FigureCard';
 import FilterForm from '../FilterForm/FilterForm';
 import './FilterView.css';
 import Loader from '../Loader/Loader';
@@ -8,7 +8,7 @@ import Loader from '../Loader/Loader';
 const FilterView: React.FC = () => {
     const { people, loading, error } = useContext(PeopleContext);
     const [filters, setFilters] = useState({ name: '', birthYear: '', gender: '' });
-    const handleFilterChange = (newFilters: { name: string; birthYear: string; gender: string }) => {
+    const handleFilterChange = (newFilters: FigureCardProps) => {
         setFilters(newFilters);
     };
 

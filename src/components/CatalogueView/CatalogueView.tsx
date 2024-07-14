@@ -10,7 +10,6 @@ import './CatalogueView.css';
 const CatalogueView: React.FC = () => {
     const { people, loading, error } = useContext(PeopleContext);
     const [isGridView, setIsGridView] = useState(true);
-    const columnCount = 4;
 
     if (loading) {
         return <Loader />;

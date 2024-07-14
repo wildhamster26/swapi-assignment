@@ -1,13 +1,13 @@
 import React from 'react';
 import './Switch.css';
 
-interface ViewToggleProps {
+interface SwitchProps {
     label: string;
     isChecked: boolean;
     toggleView: () => void;
 }
 
-const ViewToggle: React.FC<ViewToggleProps> = ({ label, isChecked, toggleView }) => {
+const Switch: React.FC<SwitchProps> = ({ label, isChecked, toggleView }) => {
     return (
         <div className="toggle-container">
             <p>{label}</p>
@@ -23,4 +23,4 @@ const ViewToggle: React.FC<ViewToggleProps> = ({ label, isChecked, toggleView })
     );
 };
 
-export default ViewToggle;
+export default Switch;

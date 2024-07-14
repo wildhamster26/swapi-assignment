@@ -15,7 +15,6 @@ interface VirtualizedGridProps {
 const VirtualizedGrid: React.FC<VirtualizedGridProps> = ({ people, height, width, minColumnWidth = 250, minRowHeight = 200 }) => {
     const columnCount = Math.max(1, Math.floor(width / minColumnWidth));
     const rowCount = Math.ceil(people.length / columnCount);
-    const columnWidth = Math.floor(width / columnCount);
 
     return (
         <Grid

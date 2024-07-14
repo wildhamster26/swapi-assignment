@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+import { FigureCardProps } from '../FigureCard/FigureCard';
 import './FilterForm.css';
 
 interface FilterFormProps {
-    onFilterChange: (filters: { name: string; birthYear: string; gender: string }) => void;
+    onFilterChange: (filters: FigureCardProps) => void;
 }
 
 const FilterForm: React.FC<FilterFormProps> = ({ onFilterChange }) => {
