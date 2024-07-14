@@ -13,6 +13,12 @@
   font-size: 1.5rem;
 }
 
+.navbar__logo a,
+.navbar__links a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
 .navbar__links {
   list-style: none;
   display: flex;
@@ -23,9 +29,4 @@
 
 .navbar__links li {
   margin: 0;
-}
-
-.navbar__link--active {
-  font-weight: bold;
-  text-decoration: underline;
 }
