@@ -8,20 +8,21 @@ interface VirtualizedGridProps {
     people: Person[];
     height: number;
     width: number;
-    columnCount: number;
+    minColumnWidth: number;
 }
 
-const VirtualizedGrid: React.FC<VirtualizedGridProps> = ({ people, height, width, columnCount }) => {
+const VirtualizedGrid: React.FC<VirtualizedGridProps> = ({ people, height, width, minColumnWidth }) => {
+    const columnCount = Math.max(1, Math.floor(width / minColumnWidth));
     const rowCount = Math.ceil(people.length / columnCount);
-    const itemSize = Math.floor(width / columnCount);
+    const columnWidth = Math.floor(width / columnCount);
 
     return (
         <Grid
             columnCount={columnCount}
-            columnWidth={() => itemSize}
+            columnWidth={() => 250}
             height={height}
             rowCount={rowCount}
-            rowHeight={() => itemSize}
+            rowHeight={() => 200}
             width={width}
         >
             {({ columnIndex, rowIndex, style }) => {
@@ -36,7 +37,6 @@ const VirtualizedGrid: React.FC<VirtualizedGridProps> = ({ people, height, width
                             name={person.name}
                             birthYear={person.birth_year}
                             gender={person.gender}
-                            // Add other necessary props here
                         />
                     </div>
                 );

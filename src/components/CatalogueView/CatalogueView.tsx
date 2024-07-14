@@ -40,15 +40,13 @@ const CatalogueView: React.FC = () => {
                                 people={people}
                                 height={height}
                                 width={width}
-                                columnCount={columnCount}
+                                minColumnWidth={200}
                             />
                         ) : (
                             <VirtualizedList
                                 people={people}
                                 height={height}
-                                itemSize={150}
                                 width={width}
-                                columnCount={1} // List view has one column
                             />
                         )
                     )}
